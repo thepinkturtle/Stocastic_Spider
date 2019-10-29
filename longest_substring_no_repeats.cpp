@@ -2,12 +2,12 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         std::string myString{};
-        int result{0};
-        int reset{0};
+        int result{0}, reset{0};
+        std::size_t notFound{};
         
         for( int i = 0; i < s.size(); ++i){
                 
-            auto notFound=myString.find(s[i]);
+            notFound = myString.find(s[i]);
 
             if( notFound == std::string::npos ){
                 myString.append(std::string(1,s[i]));
@@ -20,10 +20,7 @@ public:
             
                 result = result < myString.size() ? myString.size() : result;
         }
-        
-        std::cout<< "The end result: " << myString << std::endl;
         return result;
-        
     }
         // find the element in the map thats the longest and return it.
 };
